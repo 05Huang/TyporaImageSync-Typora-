@@ -4,8 +4,11 @@
 
 ---
 ## 😮背景
-		之前我遇到了一个比较棘手的问题，是这样的，我平常喜欢写博客，通常使用Typora写md文档，为了上传到github时候图片能够正常显示，我在Typora中设置我复制到文档中的图片会自动拷贝到与文档同级目录的images文件夹下，这一切看起来都非常合理，但是我很快发现了新的问题，当我在CSDN博客平台导入我的这个md文档时候，由于所有的图片路径为./images/xxx.png的本地相对路径，CSDN均无法识别并将图片正常展示正常展示。于是我想了一个方案，写一个python脚本，输入md文档的本地绝对路径，然后就可以自动将images文件夹下的图片上传到阿里云oss等图床，并且使用返回的网络路径替换md文档里面对应的图片路径，为我生成一个新的，可以导入csdn等博客平台的新md文件，说干就干，借助于chatgpt，很快就完成了这一小工具，哈哈。
-		I encountered a tricky problem before, it is like this, I usually like to write blogs, usually use Typora to write md documents, in order to upload to github when the pictures can be displayed normally, I set the pictures I copied to the document in Typora will be automatically copied to the images folder of the same level directory as the document, all this seems very reasonable, but I quickly found a new problem, when I imported my md document on the CSDN blog platform, Since all image paths are local relative paths of ./images/xxx.png, CSDN cannot recognize and display the images normally. So I thought of a solution, write a python script, enter the local absolute path of the MD document, and then you can automatically upload the images in the images folder to Alibaba Cloud OSS and other image beds, and use the returned network path to replace the corresponding image path in the MD document, and generate a new MD file for me, which can be imported into CSDN and other blog platforms.
+      之前我遇到了一个比较棘手的问题，是这样的，我平常喜欢写博客，通常使用Typora写md文档，为了上传到github时候图片能够正常显示，我在Typora中设置我复制到文档中的图片会自动拷贝到与文档同级目录的images文件夹下，这一切看起来都非常合理，但是我很快发现了新的问题，当我在CSDN博客平台导入我的这个md文档时候，由于所有的图片路径为./images/xxx.png的本地相对路径，CSDN均无法识别并将图片正常展示正常展示。于是我想了一个方案，写一个python脚本，输入md文档的本地绝对路径，然后就可以自动将images文件夹下的图片上传到阿里云oss等图床，并且使用返回的网络路径替换md文档里面对应的图片路径，为我生成一个新的，可以导入csdn等博客平台的新md文件，说干就干，借助于chatgpt，很快就完成了这一小工具，哈哈。
+
+      I encountered a tricky problem before, it is like this, I usually like to write blogs, usually use Typora to write md documents, in order to upload to github when the pictures can be displayed normally, I set the pictures I copied to the document in Typora will be automatically copied to the images folder of the same level directory as the document, all this seems very reasonable, but I quickly found a new problem, when I imported my md document on the CSDN blog platform, Since all image paths are local relative paths of ./images/xxx.png, CSDN cannot recognize and display the images normally. So I thought of a solution, write a python script, enter the local absolute path of the MD document, and then you can automatically upload the images in the images folder to Alibaba Cloud OSS and other image beds, and use the returned network path to replace the corresponding image path in the MD document, and generate a new MD file for me, which can be imported into CSDN and other blog platforms.
+
+
 
 ## 🚀 功能特点
 
@@ -58,7 +61,7 @@ pip install oss2 tqdm
 
 ### 3️⃣ 配置阿里云 OSS 信息
 
-创建文件 `config.json`：
+修改文件 `config.json`：
 
 ```
 {
@@ -114,15 +117,6 @@ typora-image-sync/
 
 **Q3：Typora 图片路径不是 ./images？**
  A：可以修改 `re.compile` 的匹配规则以适配不同路径。
-
-------
-
-## 🧠 未来规划
-
--  支持多图床上传（SM.MS、GitHub）
--  提供命令行参数（CLI）和 GUI 版本
--  上传前压缩、重命名功能
--  发布到 PyPI（pip install typora-image-sync）
 
 ------
 
